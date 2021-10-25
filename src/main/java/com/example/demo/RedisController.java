@@ -12,7 +12,15 @@ public class RedisController {
 
 	@Autowired
 	RedisRepository redisRepository;
-
+	
+	@Autowired
+	UserDataCacheRepo userDataCacheRepo;
+	
+	@GetMapping("/cache")
+	public String getCachedData() {
+		return userDataCacheRepo.getData();
+	}
+	
 	@GetMapping("/api")
 	public String getData() {
 
